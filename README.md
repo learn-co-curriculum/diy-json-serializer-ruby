@@ -262,7 +262,7 @@ $(function () {
     var id = $(this).data("id");
     $.get("/posts/" + id + "/post_data", function(data) {
       // Replace text of body-id div
-      $("#body-" + id).html(data["description"]);
+      $("#body-" + id).html(JSON.parse(data)["description"]);
     });
   });
 });
@@ -305,11 +305,12 @@ $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/posts/" + nextId + "/post_data", function(data) {
-      $(".authorName").text(data["author"]["name"]);
-      $(".postTitle").text(data["title"]);
-      $(".postBody").text(data["description"]);
+			var jsonData = JSON.parse(data);
+      $(".authorName").text(jsonData["author"]["name"]);
+      $(".postTitle").text(jsonData["title"]);
+      $(".postBody").text(jsonData["description"]);
       // re-set the id to current on the link
-      $(".js-next").attr("data-id", data["id"]);
+      $(".js-next").attr("data-id", jsonData["id"]);
     });
   });
 });
@@ -334,3 +335,5 @@ At least until we get to the last post.
 We've learned about serializing objects as strings, and the advantages
 of using JSON. We've also built our own JSON serializer, and used it and
 AJAX to load blog posts without reloading the page.
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/diy-json-serializer-ruby'>DIY JSON Serializer</a> on Learn.co and start learning to code for free.</p>

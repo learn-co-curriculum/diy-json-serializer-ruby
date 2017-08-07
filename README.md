@@ -202,7 +202,7 @@ string, but we need to tell the requestor that it's a properly formatted JSON st
 Now if we browse to `/posts/:id/body` (pick an `id` from the `/posts`
 page), we will see our JSON!
 
-**Top-tip:** If you haven't installed [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en) in Chrome, now would be a great time. It helps immensely with reading your JSON and even validates it and gives you errors if there's a problem!
+**Top-tip:** If you haven't installed [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en) in Chrome, now would be a great time. It helps immensely with reading your JSON and even validates it and gives you errors if there's a problem!
 
 Now, `body` isn't really accurate anymore, since we're now returning a
 serialized `Post`, so let's change the route and action to `post_data`:

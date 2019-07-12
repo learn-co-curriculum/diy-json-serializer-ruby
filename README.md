@@ -187,7 +187,7 @@ it:
 # ...
   def body
     post = Post.find(params[:id])
-    render plain: post.description
+    render json: PostSerializer.serialize(post)
   end
 ```
 
@@ -215,7 +215,7 @@ serialized `Post`, so let's change the route and action to `post_data`:
 # ...
   def post_data
     post = Post.find(params[:id])
-    render plain: post.description
+    render json: PostSerializer.serialize(post)
 ```
 
 #### Consuming JSON From The API

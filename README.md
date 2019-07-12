@@ -179,15 +179,15 @@ end
 **Top-tip:** Take care with your quotations. We need to single-quote our
 strings because JSON requires double-quoted keys and string values.
 
-Now that we have our serializer, let's update our `body` action to use
+Now that we have our serializer, let's update our `post_data` action to use
 it:
 
 ```ruby
 # posts_controller.rb
 # ...
-  def body
+  def post_data
     post = Post.find(params[:id])
-    render plain: post.description
+    render json: PostSerializer.serialize(post)
   end
 ```
 

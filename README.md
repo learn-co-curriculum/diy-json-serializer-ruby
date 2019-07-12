@@ -317,7 +317,7 @@ $(function () {
 Here we grab the `data-id` attribute value, use `parseInt()` so we can
 cast it and add one to it so we can request the _next_ post.
 
-After that, it's just a matter of using `$.get()` to hit our `post_data`
+After that, it's just a matter of using `$.getJSON()` to hit our `post_data`
 endpoint, and replace the `text` of each part of our show page.
 
 If we reload and go to our first post, then click `Next`, we get that
